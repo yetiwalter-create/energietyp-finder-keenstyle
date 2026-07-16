@@ -313,6 +313,13 @@ const names = {
   D:"Luft"
 };
 
+const images = {
+  A:"elemente/erde.png",
+  B:"elemente/wasser.png",
+  C:"elemente/feuer.png",
+  D:"elemente/luft.pnp"
+};
+
 document.getElementById("quiz").addEventListener("submit", function(e){
 
   e.preventDefault();
@@ -367,6 +374,8 @@ document.getElementById("quiz").addEventListener("submit", function(e){
 
     text = `
       <h2>Deine stärkste Energie ist ${names[top1[0]]}</h2>
+      
+      <img src="${images[top1[0]]}" alt="${names[top1[0]]}">
 
       <p>
         mit einer Komponente
