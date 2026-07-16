@@ -362,7 +362,10 @@ document.getElementById("quiz").addEventListener("submit", function(e){
     .sort((a,b)=>b[1]-a[1]);
 
   const top1 = sorted[0];
-  const top2 = sorted[1];
+
+  const top2 = sorted.find(
+    item => item[0] !== top1[0] && item[1] > 0
+);
 
   let text = "";
 
@@ -386,12 +389,12 @@ document.getElementById("quiz").addEventListener("submit", function(e){
       
       <img src="${images[top1[0]]}" alt="${names[top1[0]]}">
 
-      <p>
-        mit einer Komponente
-        <strong>${names[top2[0]]}</strong>.
-      </p>
-    `;
-  }
+      ${top2 ? `
+<p>
+mit einer Komponente
+<strong>${names[top2[0]]}</strong>.
+</p>
+` : ""}
 
   text += `
     <div class="cta">
